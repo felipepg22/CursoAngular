@@ -11,14 +11,16 @@ import { User } from '../user/user';
 })
 export class HeaderComponent {
 
-    private user$:Observable<User>;// $ -> Indica que vai receber um Observable
+    user$:Observable<User>;// $ -> Indica que vai receber um Observable
+    
     
 
     constructor(
         private userService:UserService,
         private router:Router){
         
-        this.user$ = userService.getUser();       
+        this.user$ = userService.getUser();
+        
         
     }
 

@@ -9,9 +9,11 @@ import { User } from './user';
 export class UserService {
 
     private userSubject = new BehaviorSubject<User>(null);
+    private userName:string;
     constructor(private tokenService:TokenService){
 
-        if(this.tokenService.hasToken()) this.decodeAndNotify();
+        this.tokenService.hasToken() &&
+        this.decodeAndNotify();
     }
 
     setToken(token:string){
@@ -30,6 +32,7 @@ export class UserService {
 
         const token = this.tokenService.getToken();
         const user = jwt_decode(token) as User;
+        this.userName = user.name;
 
         this.userSubject.next(user);
     }
@@ -37,5 +40,15 @@ export class UserService {
     logout(){
         this.tokenService.removeToken();
         this.userSubject.next(null);
+    }
+
+    isLogged(){
+
+        return this.tokenService.hasToken();
+    }
+
+    getUserName(){
+
+        return this.userName;
     }
 }
