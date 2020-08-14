@@ -36,8 +36,8 @@
             text='User name is required!'>
         </ap-vmessage>
         <ap-vmessage
-            *ngIf="signUpForm.get('userName').errors?.pattern"
-            text='Must be lower case and not start with numbers'>
+            *ngIf="signUpForm.get('userName').errors?.lowerCase"
+            text='Must be lower case'>
         </ap-vmessage>
         <ap-vmessage
             *ngIf="signUpForm.get('userName').errors?.minlength"
