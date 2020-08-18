@@ -46,7 +46,7 @@ const routes:Routes = [
 
 @NgModule({
 
-    imports:[RouterModule.forRoot(routes)],
+    imports:[RouterModule.forRoot(routes,{useHash:true})],//useHash => Compatibilidade de rotas na maioria dos navegadores
 
     exports:[RouterModule]
 })
