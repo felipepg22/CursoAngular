@@ -7,6 +7,7 @@ import { SignInComponent } from './signin/signin.component';
 import { VMessageModule } from '../shared/components/vmessage/vmessage.module';
 import { SignUpComponent } from './signup/signup.component';
 import { HomeComponent } from './home.component';
+import { HomeRoutingModule } from './home.routing.module';
 
 @NgModule({
 
@@ -14,6 +15,7 @@ import { HomeComponent } from './home.component';
         SignInComponent,
         SignUpComponent,
         HomeComponent
+        
      ],
 
     imports:[
@@ -22,7 +24,8 @@ import { HomeComponent } from './home.component';
         ReactiveFormsModule,
         CommonModule,
         VMessageModule,
-        RouterModule
+        RouterModule,
+        HomeRoutingModule
     ]
 })
 export class HomeModule {}
