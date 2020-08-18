@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { HomeComponent } from './home/home.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
@@ -13,13 +14,21 @@ import { SignUpComponent } from './home/signup/signup.component';
 const routes:Routes = [
 
     {path:'',
-    component:SignInComponent,
-    canActivate:[ AuthGuard ]
-    },
+    component:HomeComponent,
+    canActivate:[ AuthGuard ],
+    children:[
 
-    {path:'signup',
-    component:SignUpComponent    
+        {path:'',
+        component:SignInComponent        
+        },
+
+        {path:'signup',
+        component:SignUpComponent    
+        },
+
+    ]
     },
+    
     
     {path:'user/:userName',
      component:PhotoListComponent,
