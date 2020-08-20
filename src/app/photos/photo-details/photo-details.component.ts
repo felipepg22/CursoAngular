@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Photo } from '../photo/Photo';
 import { PhotoService } from '../photo/photo.service';
+import { PhotoComment } from '../photo/photo-comment';
 
 
 
@@ -15,6 +16,7 @@ import { PhotoService } from '../photo/photo.service';
 export class PhotoDetailsComponent implements OnInit {
 
     photo$:Observable<Photo>;
+    comments$:Observable<PhotoComment[]>;
     constructor(
         private route:ActivatedRoute,
         private photoService:PhotoService
