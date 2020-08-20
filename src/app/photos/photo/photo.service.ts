@@ -40,7 +40,7 @@ export class PhotoService {
         return this.http.post(API + '/photos/upload',formData);
     }
 
-    findById(photoId:string){
+    findById(photoId:number){
 
         return this.http.get<Photo>(API + '/photos/'+photoId);
     }
