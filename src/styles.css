@@ -2,3 +2,9 @@
 .break-word {
     word-break: break-all;
 }
+
+.change-on-hover:hover{
+
+    color: red;
+    cursor: pointer;
+}
