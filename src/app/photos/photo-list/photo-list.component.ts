@@ -25,9 +25,17 @@ export class PhotoListComponent implements OnInit {
   
   ngOnInit(): void {
     
+    // Atualiza quando muda o segmento da rota
+    this.activatedRoute.params.subscribe(params =>{
+
+      this.userName = this.activatedRoute.snapshot.params.userName;
+      this.photos = this.activatedRoute.snapshot.data['photos'];
+    });
+    /*
+    Maneira mais rápida mas que não atualiza quando muda apenas um segmento da rota
     this.userName = this.activatedRoute.snapshot.params.userName;
     this.photos = this.activatedRoute.snapshot.data['photos'];    
-    
+    */
   }
 
 

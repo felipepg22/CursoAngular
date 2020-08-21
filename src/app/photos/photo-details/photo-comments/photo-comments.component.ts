@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { switchMap, tap } from 'rxjs/operators';
 
 import { PhotoComment } from '../../photo/photo-comment';
 import { PhotoService } from '../../photo/photo.service';
-import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
     selector:'ap-photo-comments',
