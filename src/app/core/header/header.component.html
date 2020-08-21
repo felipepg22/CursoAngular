@@ -4,7 +4,7 @@
         <div *ngIf="(user$ | async) as user; else login">
             <i class="fa fa-user-circle mr-1"></i>
             <a class="mr-1">{{ user.name }}</a>
-            <a (click)="logout()">(Logout)</a>
+            <a (click)="logout()" class="change-on-hover">(Logout)</a>
         </div>
 
         <ng-template #login>
