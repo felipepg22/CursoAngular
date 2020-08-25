@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
 import { UserService } from '../user/user.service';
+import { environment } from 'src/environments/environment';
 
-const API_URL = 'http://localhost:3000';
+const API = environment.ApiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AuthService {
   authenticate(userName:string,password:string){
 
     return this.http
-            .post(API_URL + '/user/login',
+            .post(API + '/user/login',
                   {userName,password},
                   {observe:'response'})// Da acesso a todos os headers
             .pipe(tap(res=>{

@@ -5,8 +5,9 @@ import { map, catchError } from 'rxjs/operators';
 
 import { Photo } from "./Photo";
 import { PhotoComment } from './photo-comment';
+import { environment } from 'src/environments/environment';
 
-const API = 'http://localhost:3000';
+const API = environment.ApiUrl;
 
 @Injectable({providedIn: 'root'})//Pega os valores da raíz
 export class PhotoService {
