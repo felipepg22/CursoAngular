@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 import { Photo } from "./Photo";
 import { PhotoComment } from './photo-comment';
@@ -59,6 +60,19 @@ export class PhotoService {
     removePhoto(photoId:number){
 
         return this.http.delete(API + '/photos/' + photoId);
+    }
+
+    like(photoId:number){
+
+        return this.http
+                   .post(API + '/photos/'+photoId+'/likes',{},{ observe:'response' })
+                   .pipe(map(res=>true))
+                   .pipe(catchError(err=>{
+
+                        return err.status == '304'? of(false):throwError(err);
+                   }));//of => Retorna um observable
+                        // Erro 304 vem do backend dizendo que a foto ja foi curtida pelo usuário
+                   
     }
 
 }
