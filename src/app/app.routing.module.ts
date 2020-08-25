@@ -39,8 +39,13 @@ const routes:Routes = [
     component:PhotoDetailsComponent,
     },
 
+    {path:'not-found',
+    component:NotFoundComponent
+    },
+
     {path:'**',
-    component:NotFoundComponent}//Quando acessa uma rota inexistente
+    redirectTo: 'not-found'
+    }//Quando acessa uma rota inexistente
 ];
 
 @NgModule({
